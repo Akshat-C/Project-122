@@ -1,0 +1,153 @@
+x = 0;
+y = 0;
+screen_width = 0;
+screen_height = 0;
+fruit = "";
+speak_data = "";
+to_number = "";
+img_name = "";
+
+draw_apple = false;
+draw_banana = false;
+draw_mango = false;
+draw_orange = false;
+draw_peach = false;
+draw_strawberry = false;
+
+var SpeechRecognition = window.webkitSpeechRecognition;
+  
+var recognition = new SpeechRecognition();
+
+function preload()
+{
+  app = loadImage("apple.png");
+  ban = loadImage("Banana.png");
+  man = loadImage("Mango.png");
+  ora = loadImage("Orange.png");
+  pea = loadImage("Peach.png");
+  stb = loadImage("Strawberry.png")
+}
+
+function start()
+{
+  document.getElementById("status").innerHTML = "System is listening please speak";  
+  recognition.start();
+} 
+ 
+recognition.onresult = function(event) {
+
+ console.log(event); 
+
+ content = event.results[0][0].transcript;
+ to_number = Number(content);
+ document.getElementById("status").innerHTML = "The speech has been recognized: " + content;  
+
+ if (Number.isInteger(to_number))
+ {
+ if (img_name == "apple")
+    {
+        document.getElementById("status").innerHTML = "Started drawing Apple";
+        draw_apple = true;
+    } else if (img_name == "banana")
+    {
+        document.getElementById("status").innerHTML = "Started drawing Banana";
+        draw_banana = true;
+    } else if (img_name == "mango")
+    {
+        document.getElementById("status").innerHTML = "Started drawing Mango";
+        draw_mango = true;
+    } else if (img_name == "orange")
+    {
+        document.getElementById("status").innerHTML = "Started drawing Orange";
+        draw_orange = true;
+    } else if (img_name == "peach")
+    {
+        document.getElementById("status").innerHTML = "Started drawing Peach";
+        draw_peach = true;
+    } else if (img_name == "strawberry")
+    {
+        document.getElementById("status").innerHTML = "Started drawing Strawberry";
+        draw_strawberry = true;
+    }
+  } else {
+    document.getElementById("status").innerHTML = "The speech has not been recognized. Please try again";
+  }
+}
+
+function setup() 
+{
+  canvas = createCanvas(800, 500)
+}
+
+function draw() {
+  for (var i = 1; i <= to_number; i++)
+  {
+    if (draw_apple == true)
+    {
+      x = Math.floor(Math.random()*900);
+      y = Math.floor(Math.random()*500);
+      image(app, x, y, 100, 100);
+      draw_apple = false;
+    } else if (draw_banana == true)
+    {
+      x = Math.floor(Math.random()*900);
+      y = Math.floor(Math.random()*500);
+      image(ban, x, y, 100, 100);
+      draw_banana = false;
+    } else if (draw_mango == true)
+    {
+      x = Math.floor(Math.random()*900);
+      y = Math.floor(Math.random()*500);
+      image(man, x, y, 100, 100);
+      draw_mango = false;
+    } else if (draw_orange == true)
+    {
+      x = Math.floor(Math.random()*900);
+      y = Math.floor(Math.random()*500);
+      image(ora, x, y, 100, 100);
+      draw_orange = false;
+    } else if (draw_peach == true)
+    {
+      x = Math.floor(Math.random()*900);
+      y = Math.floor(Math.random()*500);
+      image(pea, x, y, 100, 100);
+      draw_peach = false;
+    } else if (draw_strawberry == true)
+    {
+      x = Math.floor(Math.random()*900);
+      y = Math.floor(Math.random()*500);
+      image(stb, x, y, 100, 100);
+      draw_strawberry = false;
+    }
+  }
+}
+
+function appl()
+{
+  img_name = "Apple";
+}
+
+function bana()
+{
+  img_name = "Banana";
+}
+
+function mang()
+{
+  img_name = "Mango";
+}
+
+function oran()
+{
+  img_name = "Orange";
+}
+
+function peac()
+{
+  img_name = "Peach";
+}
+
+function strb()
+{
+  img_name = "Strawberry";
+}
