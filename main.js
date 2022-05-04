@@ -44,27 +44,27 @@ recognition.onresult = function(event) {
 
  if (Number.isInteger(to_number))
  {
- if (img_name == "apple")
+ if (img_name == "Apple")
     {
-        document.getElementById("status").innerHTML = "Started drawing Apple";
+      document.getElementById("status").innerHTML = "Started drawing Apple";
         draw_apple = true;
-    } else if (img_name == "banana")
+    } else if (img_name == "Banana")
     {
         document.getElementById("status").innerHTML = "Started drawing Banana";
         draw_banana = true;
-    } else if (img_name == "mango")
+    } else if (img_name == "Mango")
     {
         document.getElementById("status").innerHTML = "Started drawing Mango";
         draw_mango = true;
-    } else if (img_name == "orange")
+    } else if (img_name == "Orange")
     {
         document.getElementById("status").innerHTML = "Started drawing Orange";
         draw_orange = true;
-    } else if (img_name == "peach")
+    } else if (img_name == "Peach")
     {
         document.getElementById("status").innerHTML = "Started drawing Peach";
         draw_peach = true;
-    } else if (img_name == "strawberry")
+    } else if (img_name == "Strawberry")
     {
         document.getElementById("status").innerHTML = "Started drawing Strawberry";
         draw_strawberry = true;
@@ -80,46 +80,64 @@ function setup()
 }
 
 function draw() {
-  for (var i = 1; i <= to_number; i++)
-  {
+  
+  
     if (draw_apple == true)
     {
-      x = Math.floor(Math.random()*900);
-      y = Math.floor(Math.random()*500);
+      for(var i = 1; i<=to_number; i++)
+      {
+      x = Math.floor(Math.random()*700);
+      y = Math.floor(Math.random()*400);
       image(app, x, y, 100, 100);
       draw_apple = false;
+      }
     } else if (draw_banana == true)
     {
-      x = Math.floor(Math.random()*900);
-      y = Math.floor(Math.random()*500);
+      for(var i = 1; i<=to_number; i++)
+      {
+      x = Math.floor(Math.random()*700);
+      y = Math.floor(Math.random()*400);
       image(ban, x, y, 100, 100);
       draw_banana = false;
+      }
     } else if (draw_mango == true)
     {
-      x = Math.floor(Math.random()*900);
-      y = Math.floor(Math.random()*500);
+      for(var i = 1; i<=to_number; i++)
+      {
+      x = Math.floor(Math.random()*700);
+      y = Math.floor(Math.random()*400);
       image(man, x, y, 100, 100);
       draw_mango = false;
+      }
     } else if (draw_orange == true)
     {
-      x = Math.floor(Math.random()*900);
-      y = Math.floor(Math.random()*500);
+      for(var i = 1; i<=to_number; i++)
+      {
+      x = Math.floor(Math.random()*700);
+      y = Math.floor(Math.random()*400);
       image(ora, x, y, 100, 100);
       draw_orange = false;
+      }
     } else if (draw_peach == true)
     {
-      x = Math.floor(Math.random()*900);
-      y = Math.floor(Math.random()*500);
+      for(var i = 1; i<=to_number; i++)
+      {
+      x = Math.floor(Math.random()*700);
+      y = Math.floor(Math.random()*400);
       image(pea, x, y, 100, 100);
       draw_peach = false;
+      }
     } else if (draw_strawberry == true)
     {
-      x = Math.floor(Math.random()*900);
-      y = Math.floor(Math.random()*500);
+      for(var i = 1; i<=to_number; i++)
+      {
+      x = Math.floor(Math.random()*700);
+      y = Math.floor(Math.random()*400);
       image(stb, x, y, 100, 100);
       draw_strawberry = false;
+      }
     }
-  }
+ 
 }
 
 function appl()
